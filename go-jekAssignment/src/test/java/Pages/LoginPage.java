@@ -1,19 +1,23 @@
 package Pages;
+import java.util.concurrent.TimeUnit;
+
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.*;
 public class LoginPage {
 	
 	WebDriver driver;
-	
+	Actions actions;
 	public LoginPage(WebDriver driver)
 	{
 		this.driver=driver;
 	}
 	
-	@FindBy(how=How.XPATH,using=".//*[@id='nav-link-accountList']/span[1]")
+	@FindBy(how=How.XPATH,using=".//*[@id='nav-link-accountList']")
 	@CacheLookup
 	WebElement Hello_signin;
+	
 	
 	@FindBy(how=How.XPATH,using=".//*[@id='nav-flyout-ya-signin']/a/span")
 	@CacheLookup
@@ -36,11 +40,12 @@ public class LoginPage {
 	WebElement login_button;
 	
 	
-	public void loginToAmazon(String uname, String pwd)
+	public void loginToAmazon(String email, String pwd)
 	{
-		Hello_signin.click();
-		signIn.click();
-		mail_id.sendKeys(uname);
+		
+		actions=new Actions(driver);
+		actions.doubleClick(Hello_signin).build().perform();
+		mail_id.sendKeys(email);
 		continue_button.click();
 		password.sendKeys(pwd);
 		login_button.click();
