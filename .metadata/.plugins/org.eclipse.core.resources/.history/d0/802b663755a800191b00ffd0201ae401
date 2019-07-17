@@ -1,0 +1,31 @@
+package Pages;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.*;
+public class LoginPage {
+	
+	@FindBy(how=How.XPATH,using=".//*[@id='nav-link-accountList']/span[1]")
+	WebElement Hello_signin;
+	
+	@FindBy(how=How.XPATH,using=".//*[@id='nav-flyout-ya-signin']/a/span")
+	WebElement signIn;
+	
+	@FindBy(how=How.XPATH,using=".//*[@id='ap_email']")
+	WebElement mail_id;
+	
+	@FindBy(how=How.XPATH,using=".//*[@id='continue']")
+	WebElement continue_button;
+	
+	@FindBy(how=How.XPATH,using=".//*[@id='ap_password']")
+	WebElement pwd;
+	
+	@FindBy(how=How.XPATH,using=".//*[@id='signInSubmit']")
+	WebElement login_button;
+	
+	
+	
+	
+	
+	
+	
+
+}

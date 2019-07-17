@@ -1,0 +1,23 @@
+package Tests;
+
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.support.PageFactory;
+import org.testng.annotations.Test;
+
+import Pages.LoginPage;
+import utilities.BrowserFactory;
+
+public class VerifyLogin {
+
+	@Test
+	public void checkUserLogin()
+	{
+		//WebDriver driver=BrowserFactory.startBrowser("chrome", "https://www.amazon.in/");
+		WebDriver driver;
+		System.setProperty("webdriver.chrome.driver", "C:\\Users\\Ganesh\\Desktop\\Go_JekAssignment\\go-jekAssignment\\src\\test\\resources\\Executables\\chromedriver.exe");
+		driver=new ChromeDriver();
+		LoginPage login_page=PageFactory.initElements(driver, LoginPage.class);
+		login_page.LoginToAmazon("Go_jek", "gO_jekAssiGnment@1707");
+	}
+}

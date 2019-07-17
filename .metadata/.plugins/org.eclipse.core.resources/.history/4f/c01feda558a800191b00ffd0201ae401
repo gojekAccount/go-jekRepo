@@ -1,0 +1,18 @@
+package Tests;
+
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.support.PageFactory;
+import org.testng.annotations.Test;
+
+import Pages.LoginPage;
+import utilities.BrowserFactory;
+
+public class VerifyLogin {
+
+	@Test
+	public void checkUserLogin()
+	{
+		WebDriver driver=BrowserFactory.startBrowser("firefox", "https://www.amazon.in/");
+		PageFactory.initElements(driver, LoginPage.class);
+	}
+}

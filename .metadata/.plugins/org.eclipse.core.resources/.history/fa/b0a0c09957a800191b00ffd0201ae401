@@ -1,0 +1,32 @@
+package utilities;
+
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.firefox.FirefoxDriver;
+import org.openqa.selenium.ie.InternetExplorerDriver;
+
+public class BrowserFactory {
+	
+	WebDriver driver;
+	public WebDriver startBrowser(String browserName, String url)
+	{
+		if(browserName.equalsIgnoreCase("firefox"))
+		{
+			System.setProperty("webdriver.gecko.driver", "C:\\Users\\Ganesh\\Desktop\\Go_JekAssignment\\go-jekAssignment\\src\\test\\resources\\Executables\\geckodriver.exe");
+			driver=new FirefoxDriver();
+		}
+		else if(browserName.equalsIgnoreCase("chrome"))
+		{
+			driver=new ChromeDriver();
+		}
+		else
+		{
+			driver=new InternetExplorerDriver();
+		}
+		
+		driver.manage().window().maximize();
+		driver.get(url);
+		return driver;
+	}
+
+}
