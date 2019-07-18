@@ -13,13 +13,13 @@ import BaseTest.Initializations;
 import Pages.LoginPage;
 import utilities.BrowserFactory;
 
-public class VerifyLogin extends Initializations{
+public class LoginPageTest extends Initializations{
 
 	//1. Test case to verify user login is successful or unsuccessful
 	@Test
 	public void checkUserLogin() throws IOException
 	{
-		WebDriver driver=BrowserFactory.startBrowser(Initializations.getData("browser"),Initializations.getData("url"));
+		driver=BrowserFactory.startBrowser(Initializations.getData("browser"),Initializations.getData("url"));
 		driver.manage().timeouts().implicitlyWait(60, TimeUnit.SECONDS);
 		
 		//Creating object for LoginPage
