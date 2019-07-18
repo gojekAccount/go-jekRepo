@@ -14,9 +14,12 @@ public class LoginPage {
 		this.driver=driver;
 	}
 	
+	@FindBy(how=How.XPATH,using=".//*[@id='nav-link-accountList']/span[1]")
+	WebElement signin_text;
+	
 	@FindBy(how=How.XPATH,using=".//*[@id='nav-link-accountList']")
 	@CacheLookup
-	WebElement Hello_signin;
+	WebElement hello_signin;
 	
 	
 	@FindBy(how=How.XPATH,using=".//*[@id='nav-flyout-ya-signin']/a/span")
@@ -44,11 +47,18 @@ public class LoginPage {
 	{
 		
 		actions=new Actions(driver);
-		actions.doubleClick(Hello_signin).build().perform();
+		actions.doubleClick(hello_signin).build().perform();
 		mail_id.sendKeys(email);
 		continue_button.click();
 		password.sendKeys(pwd);
 		login_button.click();
+	}
+	
+	public String textBeforeAndAfterLogin() {
+		
+		String text=signin_text.getText();
+		return text;
+		
 	}
 	
 	
