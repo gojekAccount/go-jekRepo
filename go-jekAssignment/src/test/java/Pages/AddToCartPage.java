@@ -1,17 +1,21 @@
 package Pages;
 
+import java.security.Key;
 import java.util.concurrent.TimeUnit;
 
+import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.How;
+import org.openqa.selenium.support.ui.Select;
 
 public class AddToCartPage {
 	
 	WebDriver driver;
 	Actions actions;
+	Select select;
 	public AddToCartPage(WebDriver driver)
 	{
 		this.driver=driver;
@@ -33,6 +37,25 @@ public class AddToCartPage {
 	@FindBy(how=How.XPATH,using=".//*[@id='nav-cart-count']")
 	WebElement cart_count;
 	
+	
+	@FindBy(how=How.XPATH,using=".//*[@id='twotabsearchtextbox']")
+	WebElement searchBox;
+	
+	@FindBy(how=How.XPATH,using=".//*[@id='nav-search']/form/div[2]/div/input")
+	WebElement search;
+	
+	
+	@FindBy(how=How.XPATH,using=".//*[@id='pdagDesktopSparkleDescription2']")
+	WebElement secondItem;
+	
+	@FindBy(how=How.XPATH,using=".//select[@id='quantity']")
+	WebElement quantity;
+	
+	@FindBy(how=How.XPATH,using=".//*[@id='add-to-cart-button']")
+	WebElement addToCartMac;
+	
+	
+
 	public void addToCart()
 	{
 		actions=new Actions(driver);
@@ -55,7 +78,15 @@ public class AddToCartPage {
 		return str;
 	}
 	 
-	
+	public void addToCartMac()
+	{
+		searchBox.sendKeys("Macbook pro");
+		search.click();
+		secondItem.click();
+		select=new Select(quantity);
+		select.selectByIndex(1);
+		addToCartMac.click();
+	}
 	
 
 }
